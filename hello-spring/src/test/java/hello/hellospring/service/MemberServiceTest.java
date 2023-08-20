@@ -16,7 +16,11 @@ class MemberServiceTest {
     MemberService memberService = new MemberService();
     MemoryMemberRepository memberRepository = new MemoryMemberRepository();
 
-    
+    //돌때마다 db의 값을 날려줌
+    @AfterEach
+    public void afterEach(){
+        memberRepository.clearStore();
+    }
 
     @Test
     void 회원가입() {
